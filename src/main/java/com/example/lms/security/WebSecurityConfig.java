@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 @Configuration
 @EnableWebSecurity
@@ -44,13 +45,12 @@ public class WebSecurityConfig {
     protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/static/**", "/resources/**", "/images/**", "/css/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                .formLogin(
-                        form -> form
-                                .loginPage("/login")
-                                .permitAll()
-//                        AbstractAuthenticationFilterConfigurer::permitAll
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .permitAll()
                 )
                 .logout(logout -> logout
                         .permitAll()
@@ -61,6 +61,10 @@ public class WebSecurityConfig {
                 );
         return http.build();
     }
+
+
+
+
 
 
 }

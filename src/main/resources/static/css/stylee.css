@@ -1,0 +1,104 @@
+/* stylee.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+a.link-success {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #28a745;
+    background-color: #d4edda;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a.link-success:hover {
+    color: #fff;
+    background-color: #218838;
+}
+
+a.logout-link {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1em;
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff4757;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+a.logout-link:hover {
+    background-color: #e84118;
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.thead-dark th {
+    background-color: #343a40;
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+}
+
+.table th, .table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: center;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.table tbody tr:hover {
+    background-color: #e0f7fa;
+}
+
+.table a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.table a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.table a.edit-link {
+    color: #ffc107;
+}
+
+.table a.edit-link:hover {
+    color: #e0a800;
+}
+
+.table a.delete-link {
+    color: #dc3545;
+}
+
+.table a.delete-link:hover {
+    color: #c82333;
+}
