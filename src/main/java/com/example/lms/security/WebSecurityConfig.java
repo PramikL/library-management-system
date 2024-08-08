@@ -46,7 +46,11 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .anyRequest().authenticated()
                 )
-                .formLogin(AbstractAuthenticationFilterConfigurer::permitAll
+                .formLogin(
+                        form -> form
+                                .loginPage("/login")
+                                .permitAll()
+//                        AbstractAuthenticationFilterConfigurer::permitAll
                 )
                 .logout(logout -> logout
                         .permitAll()
