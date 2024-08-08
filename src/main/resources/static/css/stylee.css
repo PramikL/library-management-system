@@ -1,13 +1,18 @@
-/* stylee.css */
+
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff;
+    background-image: url('../static/images/bgi2.jpg');
+
     color: #333;
     margin: 0;
     padding: 20px;
 }
+h3{
 
+text-align:centre;
+color:white;
+}
 a.link-success {
     display: inline-block;
     margin-bottom: 15px;
@@ -25,23 +30,22 @@ a.link-success:hover {
     color: #fff;
     background-color: #218838;
 }
-
-a.logout-link {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1em;
-    text-decoration: none;
-    color: #fff;
-    background-color: #ff4757;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+.logout {
+     display: inline-block;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+        text-decoration: none;
+        color: #28a745;
+        background-color: #d4edda;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-a.logout-link:hover {
-    background-color: #e84118;
+.logout:hover {
+    color: #fff;
+    background-color: #218838;
 }
 
 .table {
@@ -102,3 +106,5 @@ a.logout-link:hover {
 .table a.delete-link:hover {
     color: #c82333;
 }
+
+
