@@ -9,15 +9,19 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<a th:href="add_book" class="link-success">Add new Book</a>
+<a  sec:authorize ="hasAuthority('ADMIN')"th:href="add_book" class="link-success">Add new Book</a>
 <a th:href="@{/logout}" style="position: absolute; top: 0px; right: 0px;">Log out</a>
 <table class="table">
     <thead class="thead-dark">
     <tr>
         <th scope="col">Book Name</th>
         <th scope="col">Author</th>
-        <th scope="col" >Edit</th>
-        <th scope="col" >Delete</th>
+        <th scope="col"
+            sec:authorize ="hasAuthority('ADMIN')"
+        >Edit</th>
+        <th scope="col"
+            sec:authorize ="hasAuthority('ADMIN')"
+        >Delete</th>
 
     </tr>
     </thead>
@@ -26,11 +30,14 @@
     <tr th:each="book : ${books}">
         <th th:text=${book.name}></th>
         <td th:text=${book.author}></td>
-        <td>
-            <a
+
+        <td sec:authorize ="hasAuthority('ADMIN')">
+            <a sec:authorize ="hasAuthority('ADMIN')"
                th:href="@{/edit/{id} (id=${book.id})}"
             >Edit</a></td>
-        <td><a
+
+        <td sec:authorize ="hasAuthority('ADMIN')">
+            <a sec:authorize ="hasAuthority('ADMIN')"
                th:href="@{/delete/{id} (id=${book.id})}"
         >Delete</a></td>
     </tr>

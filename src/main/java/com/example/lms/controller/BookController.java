@@ -2,8 +2,10 @@ package com.example.lms.controller;
 
 import com.example.lms.dto.BookDTO;
 import com.example.lms.service.BookService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -30,7 +32,8 @@ public class BookController {
     }
 
     @PostMapping("/save_book")
-    public String saveBook(Model model, @ModelAttribute("book") BookDTO book, BindingResult bindingResult) {
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public String saveBook(Model model, @Valid @ModelAttribute("book") BookDTO book, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "add_book";
         }
@@ -39,14 +42,17 @@ public class BookController {
     }
 
     @GetMapping("/edit/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String showUpdateForm(@PathVariable Integer id, Model model) {
         model.addAttribute("book", bookService.getById(id));
         return "update_book";
     }
 
     @PostMapping("/update/{id}")
-    public String updateBook(@PathVariable Integer id, @ModelAttribute("book") BookDTO book, BindingResult bindingResult) {
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public String updateBook(@PathVariable Integer id, @Valid @ModelAttribute("book") BookDTO book, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
+            System.out.println("Validation Errors:"+ bindingResult.getAllErrors());
             book.setId(id);
             return "update_book";
         }
@@ -55,6 +61,7 @@ public class BookController {
         return RETURN_URL;
     }
     @GetMapping("/delete/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String deleteBook(@PathVariable Integer id,Model model){
         bookService.delete(id);
         return RETURN_URL;

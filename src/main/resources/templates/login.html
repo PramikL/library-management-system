@@ -20,6 +20,10 @@
         <div>
             <button type="submit">Sign in</button>
         </div>
+
+   <div th:if="${errorMessage != null}" class="error">
+    <p th:text="${errorMessage}"></p>
+</div>
     </form>
 </div>
 </body>
