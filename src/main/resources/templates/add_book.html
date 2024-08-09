@@ -5,6 +5,7 @@
     <title>Adding Books</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/static/css/styl.css}">
 </head>
 <body>
 <div class="container mt-4">
@@ -13,12 +14,12 @@
         <div class="form-group">
             <label for="name">Book Name</label>
             <input type="text" class="form-control" id="name" placeholder="Enter Book Name" th:field="*{name}">
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Book name is required.</div>
         </div>
         <div class="form-group">
             <label for="author">Book Author</label>
             <input type="text" class="form-control" id="author" placeholder="Enter Author Name" th:field="*{author}">
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></div>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author name is required.</div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

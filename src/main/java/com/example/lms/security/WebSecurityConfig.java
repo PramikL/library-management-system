@@ -46,6 +46,7 @@ public class WebSecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/static/**", "/resources/**", "/images/**", "/css/**").permitAll()
+                        .requestMatchers("/login","/register").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
