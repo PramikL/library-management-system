@@ -2,6 +2,10 @@
 body {
     background-color: #f8f9fa;
     font-family: Arial, sans-serif;
+    background-image: url('./static/images/man.jpg');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
 }
 
 .container {

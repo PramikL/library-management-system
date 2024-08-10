@@ -33,6 +33,12 @@ public class RegistrationController {
         if (bindingResult.hasErrors()) {
             return "register";
         }
+
+        if (!userDTO.getPassword().equals(userDTO.getConfirmPassword())) {
+            model.addAttribute("error", "Passwords do not match");
+            return "register";
+        }
+
         if (userRepo.getUserByUserName(userDTO.getUsername()) != null) {
             model.addAttribute("error", "Username already exists");
             return "register";

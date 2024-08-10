@@ -17,4 +17,7 @@ public class UserRegistrationDTO {
 
     @NotEmpty(message = "Password is required")
     private String password;
+
+    @NotEmpty(message = "Confirm Password is required")
+    private String confirmPassword;
 }
